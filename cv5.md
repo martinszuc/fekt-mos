@@ -267,7 +267,7 @@
 2. Click **Add** (`+`).
 3. In the **General** tab:
    - Set **Chain** to `dstnat`.
-   - Set **Dst. Port** to `33389`.
+   - Set **Dst. Port** to `33389`. (Protocol to tcp)
 4. In the **Action** tab:
    - Set **Action** to `dst-nat`.
    - Set the **To Addresses** field to your PC’s IP (e.g., `10.0.X.2`).
