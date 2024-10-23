@@ -1,1 +1,2 @@
 # fekt-mos
+venovane Dominikovi
