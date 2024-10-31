@@ -188,3 +188,27 @@ addditional info:
    - Click **OK** to save the route.
 
 Now, the router will use this gateway IP from the `wlan1` interface for routing.
+
+
+### 101. Gateway IP from PPPoE Client
+
+To find and set the gateway IP from the PPPoE client in **WinBox**:
+
+1. **Open the PPPoE Client Status**:
+   - Go to **Interfaces -> PPP** in **WinBox**.
+   - Select the **PPPoE client** interface you've configured (e.g., `PPPoE-MMOS`).
+   - Double-click on the interface to open its properties.
+
+2. **Locate the Gateway IP**:
+   - In the **Status** tab, find the **Gateway** field.
+   - Note the IP address displayed here; this is the gateway IP assigned by the PPPoE client.
+
+3. **Set the Gateway in Routes**:
+   - Go back to **IP -> Routes**.
+   - Add a new route or edit an existing one.
+   - In the **Gateway** field, enter the IP address obtained from Step 2.
+   - Set the **Distance** field to your desired metric (e.g., `20`).
+
+4. Click **OK** to save the route configuration.
+
+This completes setting up a static default route using the gateway IP from the PPPoE client.
