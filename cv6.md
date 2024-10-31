@@ -130,40 +130,76 @@
 
 ---
 
-## 8. PPTP Server Setup
+## 8. PPTP Server and Client Setup
+
+In this section, we’ll configure a PPTP server and client to establish a secure connection between neighboring routers. The purpose is to enable communication and routing between your local network and your neighbor’s network, creating a simple VPN-like setup for testing and collaboration.
 
 ### 8.1 Enable PPTP Server
-1. Go to **PPP -> PPTP Server**.
-2. Enable the server and assign the appropriate profile.
-3. Click **OK** to save.
+1. Go to **PPP -> PPTP Server** in **WinBox**.
+2. Enable the **PPTP Server** by checking the box labeled **Enabled**.
+3. In the **Profile** dropdown, select the appropriate **server profile** (this should include IP configurations specific to the server side).
+4. Click **OK** to save and activate the server.
 
-### 8.2 Configure PPTP Client
-1. Go to **Interfaces -> PPTP Client** and add a new client.
-2. Configure:
-   - **Server Address**: Set to the neighbor's router IP.
-   - **User**: Set to the neighbor’s PPP credentials.
-   - **Profile**: Select the appropriate client profile.
-3. Click **OK** to establish the connection.
+> **Note**: Enabling the PPTP server allows your router to accept connections from a PPTP client configured on your neighbor’s router.
+
+### 8.2 Configure PPTP Client (Connection to Neighbor’s PPTP Server)
+1. **Coordinate with Your Neighbor**:
+   - Decide on IP addresses and credentials for each router.
+   - Ensure both routers have **active PPTP servers and clients** to allow two-way communication.
+   - Identify the IP address of the neighbor’s PPTP server interface for configuration.
+
+2. **Add PPTP Client**:
+   - Go to **Interfaces -> PPTP Client** and click **Add** (`+`).
+   - Configure the client connection:
+     - **Server Address**: Enter your neighbor’s router IP (PPTP server address).
+     - **User**: Enter the username provided by your neighbor.
+     - **Password**: Enter the password provided by your neighbor.
+     - **Profile**: Select the client profile created for PPTP connections.
+   - Click **OK** to establish the connection.
+
+> **Result**: Your router will connect to the neighbor’s PPTP server, creating a secure, tunnel-like connection between both routers.
 
 ### 8.3 Configure Local Network Routing to Neighbor
+To enable routing between local networks (LANs) of both routers:
+
 1. Go to **IP -> Routes**.
-2. Add a new route for the neighbor’s local network.
+2. Click **Add** (`+`) to create a new route.
+3. Set the following:
+   - **Dst. Address**: Enter your neighbor’s LAN network address (e.g., `192.168.Y.0/24`).
+   - **Gateway**: Select the PPTP client interface or enter the PPTP connection IP.
+4. Click **OK** to save.
+
+> **Objective**: This route directs traffic to the neighbor’s LAN through the PPTP connection, allowing devices on both networks to communicate.
 
 ---
 
-## 9. Final Testing
+## 9. Final Testing and Backup
 
 ### 9.1 Verify Connectivity with Neighbor
-1. Use **ping** to test connectivity between devices on both networks.
+1. From your router, use **ping** to test connectivity to devices in your neighbor’s LAN.
+2. Confirm that you can communicate with your neighbor’s network successfully.
+
+> **Goal**: Pinging confirms that the connection and routing are set up correctly, allowing devices to exchange data over the PPTP link.
 
 ### 9.2 Export and Backup Configuration
-1. Go to **Files**.
-2. Click **Backup** and save your configuration.
+1. Go to **Files** in **WinBox**.
+2. Click **Backup** and save the configuration file.
+3. **Submit the backup** to your e-learning platform if required.
+
+> **Reason**: Backing up the configuration ensures you have a record of your setup for future reference or restoration.
 
 ---
 
 ## 10. Reset Router
-1. Reset the router using **System -> Reset Configuration** without **No Default Configuration**.
+
+After completing the exercise, **reset the router** to its default settings:
+
+1. Go to **System -> Reset Configuration**.
+2. Uncheck **No Default Configuration** to restore the router’s original setup.
+3. Click **Reset Configuration** and allow the router to reboot.
+
+> **Purpose**: Resetting the router clears the custom configuration, preparing the device for the next user or exercise.
+
 
 
 
