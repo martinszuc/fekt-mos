@@ -142,7 +142,7 @@ In this section, we’ll configure a PPTP server and client to establish a secur
 
 > **Note**: Enabling the PPTP server allows your router to accept connections from a PPTP client configured on your neighbor’s router.
 
-### 8.2 Configure PPTP Client (Connection to Neighbor’s PPTP Server)
+### 8.2 Configure PPTP Client (Connection to Neighbor’s PPTP Server)  [how to](https://github.com/martinszuc/fekt-mos/blob/main/cv6.md#17-connect-to-neighbors-router-via-pptp-client)
 1. **Coordinate with Your Neighbor**:
    - Decide on IP addresses and credentials for each router.
    - Ensure both routers have **active PPTP servers and clients** to allow two-way communication.
