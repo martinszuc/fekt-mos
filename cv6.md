@@ -45,7 +45,7 @@
 2. Click **Add** (`+`).
 3. Configure the route:
    - **Dst. Address**: `0.0.0.0/0`
-   - **Gateway**: Set the gateway IP obtained from the DHCP client on **wlan1**.[how to](https://github.com/martinszuc/fekt-mos/new/main#100-gateway-ip-from-dhcp-client-on-wlan1)
+   - **Gateway**: Set the gateway IP obtained from the DHCP client on **wlan1**.[how to](https://github.com/martinszuc/fekt-mos/blob/main/cv6.md#100-gateway-ip-from-dhcp-client-on-wlan1)
    - **Distance**: `10`
 4. Click **OK** to save.
 
