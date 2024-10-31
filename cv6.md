@@ -49,6 +49,18 @@
    - **Distance**: `10`
 4. Click **OK** to save.
 
+### 3.3 Configure NAT for WiFi Client on wlan1
+1. Go to **IP -> Firewall -> NAT** in **WinBox**.
+2. Click **Add** (`+`) to create a new NAT rule.
+3. Configure the NAT rule as follows:
+   - **Chain**: `srcnat` (this handles outgoing traffic).
+   - **Out. Interface**: `wlan1` (select your WiFi interface for Lab537).
+4. Go to the **Action** tab:
+   - **Action**: Select `masquerade`.
+5. Click **OK** to save the NAT rule.
+
+> **Note**: This NAT rule ensures that any device on your LAN can use the WiFi connection on `wlan1` for internet access.
+
 ---
 
 ## 4. Router Identity Configuration
