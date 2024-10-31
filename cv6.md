@@ -138,7 +138,10 @@
 1. Go to **Interfaces -> Wireless** and disable **wlan1**.
 2. Perform a traceroute to `8.8.8.8` again to confirm that PPPoE routing is functioning.
 
-3. Re-enable **wlan1** after the test.
+> **Note**: When WiFi was disabled, the router should have used the PPPoE connection on ether1 for internet access (assuming the PPPoE route is configured). Upon re-enabling WiFi, the router prioritized the WiFi connection for internet access due to its lower route distance.
+
+
+4. Re-enable **wlan1** after the test.
 
 ---
 
