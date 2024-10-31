@@ -103,7 +103,7 @@
 2. Click **Add** (`+`).
 3. Configure the route:
    - **Dst. Address**: `0.0.0.0/0`
-   - **Gateway**: Set the gateway IP obtained from the PPPoE client.
+   - **Gateway**: Set the gateway IP obtained from the PPPoE client. [how to](https://github.com/martinszuc/fekt-mos/blob/main/cv6.md#100-gateway-ip-from-dhcp-client-on-wlan1)
    - **Distance**: `20`
 4. Click **OK** to save.
 
