@@ -248,3 +248,55 @@ To find and set the gateway IP from the PPPoE client in **WinBox**:
 4. Click **OK** to save the route configuration.
 
 This completes setting up a static default route using the gateway IP from the PPPoE client.
+
+## 17. Connect to Neighbor’s Router via PPTP Client
+
+### Step 1: Enable PPTP Server on Your Router
+1. Go to **PPP -> PPTP Server** in **WinBox**.
+2. Check the box labeled **Enabled** to activate the PPTP server.
+3. In the **Profile** dropdown, select the server profile you created earlier.
+4. Click **OK** to save.
+
+> **Note**: Enabling the PPTP server on both routers allows each router to accept incoming connections from the other’s PPTP client.
+
+### Step 2: Configure PPTP Client on Your Router (Connecting to Neighbor’s Server)
+1. **Coordinate with Your Neighbor**:
+   - Exchange each router’s **PPTP server IP address**, **username**, and **password**.
+   - Use the **neighbor’s router IP** for the PPTP server address (e.g., `192.168.2.1` if that's your neighbor’s IP).
+
+2. **Add PPTP Client**:
+   - Go to **Interfaces -> PPTP Client** and click **Add** (`+`).
+   - Configure the PPTP client connection as follows:
+     - **Server Address**: Enter the neighbor’s router IP (PPTP server IP address).
+     - **User**: Enter the username provided by your neighbor.
+     - **Password**: Enter the password provided by your neighbor.
+     - **Profile**: Select the PPTP client profile created for this purpose.
+   - Click **OK** to establish the connection.
+
+> **Result**: Your router will attempt to connect to your neighbor’s PPTP server, creating a secure VPN-like tunnel.
+
+### Step 3: Verify Connection
+1. **Check Connection Status**:
+   - Go to **PPP -> Interfaces** and ensure the **PPTP client** interface shows a **“Connected”** status.
+   - If connected, you’ll see an active interface with the PPTP IP address.
+
+2. **Test the Tunnel Connection**:
+   - Ping the neighbor’s router PPTP IP (e.g., `10.10.0.2`) from your router.
+   - If the ping is successful, your PPTP tunnel is working, and you have connectivity with your neighbor’s router.
+
+> **Objective**: This test confirms that your router can communicate with the neighbor’s network through the PPTP connection.
+
+### Step 4: Set up Routing to Neighbor’s LAN (Optional)
+1. Go to **IP -> Routes** and click **Add** (`+`).
+2. Set the following:
+   - **Dst. Address**: The neighbor’s LAN network (e.g., `192.168.2.0/24`).
+   - **Gateway**: Select the PPTP client interface.
+3. Click **OK** to save.
+
+> **Purpose**: This route allows devices on your LAN to communicate with devices on the neighbor’s LAN through the PPTP tunnel.
+
+---
+
+## Summary
+By following these steps, you’ll establish a PPTP tunnel to your neighbor’s router and set up routing for two-way communication between both networks. Ensure that both you and your neighbor configure the PPTP client and server interfaces so each router can act as both a client and server.
+
